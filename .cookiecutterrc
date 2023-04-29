@@ -1,0 +1,16 @@
+default_context:
+    full_name: "pokusapi"
+    email: "jblasselle@pokusio.io"
+    github_username: "Jean-Baptiste-Lasselle"
+    project_name: "pokusapi"
+    project_slug: "Pokus FastAPI"
+    project_short_description: "Let's try with FastAPI!"
+    pypi_username: "jblasselle"
+    version: 0.0.1-alpha
+    use_pytest: y
+    use_pypi_deployment_with_travis: y
+    add_pyup_badge: y
+    command_line_interface: "Click"
+    create_author_file: "y"
+    open_source_license: "MIT license"
+

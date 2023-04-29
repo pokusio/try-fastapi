@@ -1,0 +1,14 @@
+{
+  "_output_dir": "C:\\Users\\Utilisateur\\try-fastapi",
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Claudio Jolowicz",
+  "copyright_year": "2023",
+  "development_status": "Development Status :: 1 - Planning",
+  "email": "jblasselle@pokusio.io",
+  "friendly_name": "pokusapi",
+  "github_user": "cjolowicz",
+  "license": "MIT",
+  "package_name": "pokusapi",
+  "project_name": "pokusapi",
+  "version": "0.0.1-alpha"
+}
