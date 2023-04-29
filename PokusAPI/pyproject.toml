@@ -18,6 +18,8 @@ Changelog = "https://github.com/cjolowicz/pokusapi/releases"
 [tool.poetry.dependencies]
 python = "^3.7"
 click = ">=8.0.1"
+fastapi = "^0.95.1"
+uvicorn = {extras = ["standard"], version = "^0.22.0"}
 
 [tool.poetry.dev-dependencies]
 Pygments = ">=2.10.0"
@@ -46,7 +48,9 @@ xdoctest = {extras = ["colors"], version = ">=0.15.10"}
 myst-parser = {version = ">=0.16.1"}
 
 [tool.poetry.scripts]
-pokusapi = "pokusapi.__main__:main"
+# pokusapi = "pokusapi.__main__:main"
+# pokusapi = "pokusapi.__init__:start"
+pokusapi = "pokusapi.__main__:start"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]

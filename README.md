@@ -140,7 +140,7 @@ echo "# - Poetry" | tee -a ~/.bashrc | tee -a ~/.bash_profile | tee -a ~/.profil
 cat ./.addon.windows.git.bashrc | tee -a ~/.bashrc | tee -a ~/.bash_profile | tee -a ~/.profile
 
 # source ~/.profile
-export PATH="\${HOME}/AppData/Roaming/Python/Scripts:\$PATH"
+export PATH="${HOME}/AppData/Roaming/Python/Scripts:$PATH"
 poetry --version
 
 
@@ -187,8 +187,82 @@ cookiecutter gh:cjolowicz/cookiecutter-hypermodern-python --checkout=2022.6.3 --
 
 cd ${PROJECT_NAME}
 
+poetry update
+poetry install
+
+
+
+
+# then you can run it by : (see [tool.poetry.scripts] in pyproject.toml)
+poetry run pokusapi
 
 ```
+* I get such an output : 
+
+```bash
+Utilisateur@Utilisateur-PC MINGW64 ~/try-fastapi/PokusAPI (develop)
+$ poetry install
+Installing dependencies from lock file
+
+No dependencies to install or update
+
+Installing the current project: pokusapi (0.0.1-alpha)
+
+Utilisateur@Utilisateur-PC MINGW64 ~/try-fastapi/PokusAPI (develop)
+$ poetry run pokusapi
+What's the best API ? Pokus Of Course !
+What's the best API ? Pokus, period.
+```
+
+* now for `FastAPI`, I follow https://realpython.com/fastapi-python-web-apis/ :
+
+```bash
+# python -m pip install fastapi uvicorn[standard]
+
+poetry add fastapi  uvicorn[standard]
+
+# ---
+# Let's continue with  https://medium.com/@caetanoog/start-your-first-fastapi-server-with-poetry-in-10-minutes-fef90e9604d9
+
+
+```
+* After that, that's how I could run the fastapi server (after activating) : 
+
+```bash
+# ---
+#  Its still same command, I integrated it :
+#   - using the [tool.poetry.scripts] in [pyproject.toml]
+#   - and using https://medium.com/@caetanoog/start-your-first-fastapi-server-with-poetry-in-10-minutes-fef90e9604d9
+poetry run pokusapi
+# --- 
+# and then : 
+#   curl -ivvv http://127.0.0.1:8000/books/tomsawyer
+```
+
+* Oh I found :
+  * this cookie cutter for poery fastapi project : https://github.com/max-pfeiffer/uvicorn-poetry-fastapi-project-template
+  * ohhh and an official FastAPI cookiecutter : https://github.com/tiangolo/full-stack-fastapi-postgresql
+
+* ok next steps : https://fastapi.tiangolo.com/tutorial/bigger-applications/
+* Now, to organize better the code, here is what i did : 
+  * I found a good example fastai poetry example app : 
+    * https://github.com/nsidnev/fastapi-realworld-example-app
+    * for that app : 
+      * the entrypoint is is https://github.com/nsidnev/fastapi-realworld-example-app/blob/master/app/main.py
+      * the pyproject.toml has got no script definition to run the app using `poetry run` 
+      * that project has a very good structure : i want to omake a cookie cutter from it, and then i will try to build a terraformable REST API
+      
+  * OKAYYYY FastAI is really interesting : IT NATIVELY SUPPORTS OAUTH2 SCOPES : 
+    * https://fastapi.tiangolo.com/advanced/security/oauth2-scopes/
+    * and it apparently is the next generation fter `Django` and after `Flask`
+    * I want to try that : 
+      * a very, very simple rest api, for a cloud, with only 2 resources types,
+      * and there is Oauth2 OIDC support with scopes
+      * I deploy my REST API, with keycloak, and i setup OIDC client
+      * then i must check how can my terraform provider authenticate against my REST API (terraform authentication OIDC)
+      * I need to complete first https://fastapi.tiangolo.com/tutorial/bigger-applications/
+
+
 
 
 ### SetupTools
